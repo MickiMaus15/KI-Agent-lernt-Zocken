@@ -4,16 +4,24 @@ import numpy as np
 from gymnasium import spaces
 import pygame
 
+GRID_SIZE = 10
+REWARD_FOOD= 5.0
+REWARD_DEATH = -10.0
+STEP_PENALTY = -0.5
+MAX_STEPS_WITHOUT_FOOD = 50
+
+
+
 
 class SnakeEnv(gym.Env):
 #initialisierung
     def __init__(
         self,
-        grid_size=10,                #spielfeld größe
-        reward_food=10.0,            # belohnung für apfel
-        reward_death=-10.0,          # bestafung bei tod
-        step_penalty=-0.01,          # bestafung für jeden schritt
-        max_steps_without_food=100,  # max schritte bis tod
+        grid_size=GRID_SIZE,                #spielfeld größe
+        reward_food=REWARD_FOOD,            # belohnung für apfel
+        reward_death=REWARD_DEATH,          # bestafung bei tod
+        step_penalty=STEP_PENALTY,          # bestafung für jeden schritt
+        max_steps_without_food=MAX_STEPS_WITHOUT_FOOD,  # max schritte bis tod
         render_mode = None,
         cell_size = 30,
         fps = 10,

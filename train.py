@@ -17,18 +17,21 @@ SHOW_FPS = 15
 SEED = 0                           
 
 #Spielfeld & Rewards
-GRID_SIZE = 20
-REWARD_FOOD = 10.0
-REWARD_DEATH = -10.0
-STEP_PENALTY = -0.1
-MAX_STEPS_WITHOUT_FOOD = 50
+from snake_env import (
+    SnakeEnv,
+    GRID_SIZE,
+    REWARD_FOOD,
+    REWARD_DEATH,
+    STEP_PENALTY,
+    MAX_STEPS_WITHOUT_FOOD,
+)
 
 #Q-Learning Parameter
 ALPHA = 0.3             # Lernrate: wie stark neue Erfahrung die Tabelle verändert
 GAMMA = 0.9             # Discount-Faktor: wie wichtig zukünftige Belohnung ist
 EPSILON_START = 1     # Anfangs nur zufällige Aktionen (Erkunden)
 EPSILON_END = 0.01      # am Ende fast nur noch beste bekannte Aktion (Ausnutzen)
-EPSILON_DECAY = 1   # Epsilon wird nach jeder Episode mit diesem Faktor multipliziert
+EPSILON_DECAY = 0.99   # Epsilon wird nach jeder Episode mit diesem Faktor multipliziert
 
 
 #hilfsfunktion (wandelt 11 vektoren zu zahl um)
